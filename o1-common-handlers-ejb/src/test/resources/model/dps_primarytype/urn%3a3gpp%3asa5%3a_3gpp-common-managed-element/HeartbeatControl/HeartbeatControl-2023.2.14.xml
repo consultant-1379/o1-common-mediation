@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_common" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:definedBy="NE" ns1:lifeCycle="CURRENT" ns1:name="HeartbeatControl" ns1:ns="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:version="2023.2.14" readBehavior="FROM_PERSISTENCE" writeBehavior="PERSIST_AND_DELEGATE">
+  <ns1:modelCreationInfo author="YANG Transformer2">
+    <ns1:derivedModel derivedFrom="/net_yang/urn%3a3gpp%3asa5%3a_3gpp-common-managed-element/_3gpp-common-managed-element%402023-02-14"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>MnS consumers (i.e. notification recipients) use heartbeat notifications to monitor the communication channels between them and data reporting MnS producers emitting notifications such as notifyNewAlarm and notifyFileReady. 
+A HeartbeatControl instance allows controlling the emission of heartbeat notifications by MnS producers. The recipients of heartbeat notifications are specified by the notificationRecipientAddress attribute of the NtfSubscriptionControl instance containing the HeartbeatControl instance. 
+Note that the MnS consumer managing the HeartbeatControl instance and the MnS consumer receiving the heartbeat notifications may not be the same. 
+As a pre-condition for the emission of heartbeat notifications, a HeartbeatControl instance needs to be created. Creation of an instance with an initial non-zero value of the heartbeatNtfPeriod attribute triggers an immediate heartbeat notification emission. Creation of an instance with an initial zero value of the heartbeatPeriod attribute does not trigger an emission of a heartbeat notification. Deletion of an instance does not trigger an emission of a heartbeat notification. 
+Once the instance is created, heartbeat notifications are emitted with a periodicity defined by the value of the heartbeatNtfPeriod attribute. No heartbeat notifications are emitted if the value is equal to zero. Setting a zero value to a non zero value, or a non zero value to a different non zero value, triggers an immediate heartbeat notification, that is the base for the new heartbeat period. Setting a non zero value to a zero value stops emitting heartbeats immediately; no final heartbeat notification is sent. 
+Creation and deletion of HeartbeatControl instances by MnS Consumers is optional; when not supported, the HeartbeatControl instances may be created and deleted by the system or be pre-installed. 
+Whether and when to emit heartbeat notifications is controlled by HeartbeatControl. Subscription for heartbeat is not supported via the NtfSubscriptionControl.</ns1:desc>
+  <ns1:meta metaName="YANG_3GPP_REAGGREGATED_IOC"/>
+  <ns2:primaryTypeAttribute immutable="true" key="true" mandatory="true" ns="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="id" readBehavior="FROM_PERSISTENCE" sensitive="false" writeBehavior="PERSIST_AND_DELEGATE">
+    <ns1:desc>Key leaf (namingAttribute) for a class/list. Should be used as a key leaf for lists representing stage 2 classes.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute immutable="false" key="false" mandatory="true" ns="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="heartbeatNtfPeriod" readBehavior="FROM_PERSISTENCE" sensitive="false" writeBehavior="PERSIST_AND_DELEGATE">
+    <ns1:desc>Specifies the periodicity of heartbeat notification emission. The value of zero has the special meaning of stopping the heartbeat notification emission.</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:notNullConstraint/>
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="4294967295" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+    <ns1:unit>seconds</ns1:unit>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute immutable="false" key="false" mandatory="false" ns="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="triggerHeartbeatNtf" readBehavior="FROM_PERSISTENCE" sensitive="false" writeBehavior="PERSIST_AND_DELEGATE">
+    <ns1:desc>Setting this attribute to 'true' triggers an immediate additional heartbeat notification emission. Setting the value to 'false' has no observable result. 
+The periodicity of notifyHeartbeat emission is not changed. 
+After triggering the heartbeat the system SHALL set the value back to false.</ns1:desc>
+    <ns1:type xsi:type="ns1:booleanType"/>
+    <ns1:default value="false" xsi:type="ns1:booleanValue"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

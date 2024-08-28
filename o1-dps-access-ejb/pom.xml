@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>o1-common-mediation</artifactId>
+        <groupId>com.ericsson.oss.mediation.o1</groupId>
+        <version>1.2.2-SNAPSHOT</version>
+    </parent>
+    <artifactId>o1-dps-access-ejb</artifactId>
+    <packaging>ejb</packaging>
+
+    <name>[${project.parent.artifactId}] DPS Access EJB module</name>
+
+    <properties>
+        <sonar.sources>pom.xml,src</sonar.sources>
+        <sonar.tests />
+        <sonar.coverage.jacoco.xmlReportPaths>${project.basedir}/../${aggregate.report.dir}
+        </sonar.coverage.jacoco.xmlReportPaths>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ejb-plugin</artifactId>
+                <version>${version.maven-plugin}</version>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <!-- Project dependencies -->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>o1-common-utils-jar</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!-- SDK dependencies -->
+        <dependency>
+            <groupId>com.ericsson.oss.itpf.sdk</groupId>
+            <artifactId>sdk-core-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.ericsson.oss.itpf.datalayer.dps</groupId>
+            <artifactId>dps-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+    </dependencies>
+</project>

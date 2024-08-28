@@ -1,0 +1,42 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+
+# Compiled source #
+*.class
+*/bin/*
+
+# intelliJ files
+*.iml
+*/*.iml
+
+# Eclipse files
+.project
+.classpath
+.settings
+
+# vscode files
+.vscode
+
+# Packages
+*.jar
+
+# Maven build files
+target
+model-build
+cppsplitoutput
+reports
+
+# ARQ tests
+arq-perf
+
+# PMD
+.pmd
+
+#Generated files
+*.ser
+
+# Merge files
+*.orig
+.idea
+/deps.log

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_common" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:definedBy="NE" ns1:lifeCycle="CURRENT" ns1:name="ManagedElement" ns1:ns="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:version="2023.2.14" readBehavior="FROM_PERSISTENCE" writeBehavior="PERSIST_AND_DELEGATE">
+  <ns1:modelCreationInfo author="YANG Transformer2">
+    <ns1:derivedModel derivedFrom="/net_yang/urn%3a3gpp%3asa5%3a_3gpp-common-managed-element/_3gpp-common-managed-element%402023-02-14"/>
+  </ns1:modelCreationInfo>
+  <ns1:inheritsFrom urn="//OSS_TOP/ManagedElement/3.0.0"/>
+  <ns1:desc>Represents telecommunications equipment or TMN entities within the telecommunications network providing support and/or service to the subscriber. An ManagedElement IOC is used to represent a Network Element defined in TS 32.101 including virtualizeation or non-virtualization scenario. An ManagedElement instance is used for communicating with a manager (directly or indirectly) over one or more management interfaces for the purpose of being monitored and/or controlled. ManagedElement may or may not additionally perform element management functionality. An ManagedElement contains equipment that may or may not be geographically distributed. 
+A telecommunication equipment has software and hardware components. The ManagedElement IOC described above represents following two case: - In the case when the software component is designed to run on dedicated hardware component, the ManagedElement IOC description includes both software and hardware components. - In the case when the software is designed to run on ETSI NFV defined NFVI [15], the ManagedElement IOC description would exclude the NFVI component supporting the above  mentioned subject software. 
+A ManagedElement may be contained in either a SubNetwork or in a MeContext instance. A single ManagedElement may also exist stand-alone with no parent at all. 
+The relation of ManagedElement IOC and ManagedFunction IOC can be described as following: - A ManaagedElement instance may have 1..1 containment relationship to a ManagedFunction instance. In this case, the ManagedElement IOC may be used to represent a NE with single functionality. For example, a ManagedElement is used to represent the 3GPP defined RNC node; - A ManagedElement instance may have 1..N containment relationship to multiple ManagedFunction IOC instances. In this case, the ManagedElement IOC may be used to represent a NE with combined ManagedFunction funcationality (as indicated by the managedElementType attribute and the contained instances of different ManagedFunction IOCs).For example, a ManagedElement is used to represent the combined functionality of 3GPP defined gNBCUCPFuntion, gNBCUUPFunction and gNBDUFunction</ns1:desc>
+  <ns1:meta metaName="YANG_3GPP_REAGGREGATED_IOC"/>
+  <ns1:meta metaName="YANG_TOP_LEVEL_DATA_NODE"/>
+  <ns2:primaryTypeAttribute immutable="true" key="true" mandatory="true" ns="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="id" readBehavior="FROM_PERSISTENCE" sensitive="false" writeBehavior="PERSIST_AND_DELEGATE">
+    <ns1:desc>Key leaf (namingAttribute) for a class/list. Should be used as a key leaf for lists representing stage 2 classes.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute immutable="false" key="false" mandatory="false" ns="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="dnPrefix" readBehavior="FROM_PERSISTENCE" sensitive="false" writeBehavior="PERSIST_AND_DELEGATE">
+    <ns1:desc>Provides naming context that allows the Managed Elements to be partitioned into logical domains. A Distingushed Name(DN) is defined by 3GPP TS 32.300, which splits the DN into a DN Prefix and Local DN</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringContentsConstraint type="REGEX" value="([a-zA-Z][a-zA-Z0-9-]*=(\\( |#|\\|&gt;|&lt;|;|&quot;|\+|,|[a-fA-F0-9]{2})|[^\\&gt;&lt;;&quot;+,# ])((\\( |#|\\|&gt;|&lt;|;|&quot;|\+|,|[a-fA-F0-9]{2})|[^\\&gt;&lt;;&quot;+,])*(\\( |#|\\|&gt;|&lt;|;|&quot;|\+|,|[a-fA-F0-9]{2})|[^\\&gt;&lt;;&quot;+, ]))?[,\+])*[a-zA-Z][a-zA-Z0-9-]*=(\\( |#|\\|&gt;|&lt;|;|&quot;|\+|,|[a-fA-F0-9]{2})|[^\\&gt;&lt;;&quot;+,# ])((\\( |#|\\|&gt;|&lt;|;|&quot;|\+|,|[a-fA-F0-9]{2})|[^\\&gt;&lt;;&quot;+,])*(\\( |#|\\|&gt;|&lt;|;|&quot;|\+|,|[a-fA-F0-9]{2})|[^\\&gt;&lt;;&quot;+, ]))?"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute immutable="false" key="false" mandatory="false" ns="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="locationName" readBehavior="FROM_DELEGATE" sensitive="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The physical location (e.g. an address) of an entity represented by a (derivative of) ManagedElement_. It may contain no information to support the case where the derivative of ManagedElement_ needs to represent a distributed multi-location NE.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute immutable="false" key="false" mandatory="false" ns="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="managedBy" readBehavior="FROM_DELEGATE" sensitive="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>Relates to the role played by ManagementSystem_ in the between ManagedSystem_ and ManagedElement_. This attribute contains a list of the DN(s) of the related subclasses of ManagementSystem_ instance(s).</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType xsi:type="ns1:stringType">
+        <ns1:stringContentsConstraint type="REGEX" value="([a-zA-Z][a-zA-Z0-9-]*=(\\( |#|\\|&gt;|&lt;|;|&quot;|\+|,|[a-fA-F0-9]{2})|[^\\&gt;&lt;;&quot;+,# ])((\\( |#|\\|&gt;|&lt;|;|&quot;|\+|,|[a-fA-F0-9]{2})|[^\\&gt;&lt;;&quot;+,])*(\\( |#|\\|&gt;|&lt;|;|&quot;|\+|,|[a-fA-F0-9]{2})|[^\\&gt;&lt;;&quot;+, ]))?[,\+])*[a-zA-Z][a-zA-Z0-9-]*=(\\( |#|\\|&gt;|&lt;|;|&quot;|\+|,|[a-fA-F0-9]{2})|[^\\&gt;&lt;;&quot;+,# ])((\\( |#|\\|&gt;|&lt;|;|&quot;|\+|,|[a-fA-F0-9]{2})|[^\\&gt;&lt;;&quot;+,])*(\\( |#|\\|&gt;|&lt;|;|&quot;|\+|,|[a-fA-F0-9]{2})|[^\\&gt;&lt;;&quot;+, ]))?"/>
+      </ns1:collectionValuesType>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute immutable="false" key="false" mandatory="false" ns="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="managedElementTypeList" readBehavior="FROM_DELEGATE" sensitive="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The type of functionality provided by the ManagedElement. It may represent one ME functionality or a combination of more than one functionality. 1) The allowed values of this attribute are the names of the IOC(s) that are (a) derived/subclassed from ManagedFunction and (b) directly name-contained by ManagedElement IOC (on the first level below ManagedElement), but with the string 'Function' excluded. 2) If a ManagedElement contains multiple instances of a ManagedFunction this attribute will not contain repeated values. 3) The capitalisation (usage of upper/lower case) of characters in this attribute is insignificant.  Thus, the NodeB should be case insensitive when reading these values. 4) Two examples of allowed values are: -  NodeB; -  HLR, VLR.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionSizeConstraint>
+        <ns1:minSize value="1"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionValuesType xsi:type="ns1:stringType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute immutable="false" key="false" mandatory="true" ns="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="priorityLabel" readBehavior="FROM_PERSISTENCE" sensitive="false" writeBehavior="PERSIST_AND_DELEGATE">
+    <ns1:desc>priorityLabel</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:notNullConstraint/>
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="4294967295" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute immutable="false" key="false" mandatory="false" ns="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="supportedTraceMetrics" readBehavior="FROM_DELEGATE" sensitive="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>List of trace metrics. When this attribute is contained in a managed object it defines the trace metrics supported for this object and all descendant objects. 
+Trace metrics include trace messages, MDT measurements (Immediate MDT, Logged MDT, Logged MBSFN MDT), RLF and RCEF reports, see TS 32.422. Trace metrics are identified with their metric identifier. The metric identifier is constructed as defined in clause 10 of TS 32.422.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionValuesType xsi:type="ns1:stringType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute immutable="false" key="false" mandatory="false" ns="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="swVersion" readBehavior="FROM_DELEGATE" sensitive="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>swVersion</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute immutable="false" key="false" mandatory="false" ns="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="userDefinedState" readBehavior="FROM_PERSISTENCE" sensitive="false" writeBehavior="PERSIST_AND_DELEGATE">
+    <ns1:desc>An operator defined state for operator specific usage</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute immutable="false" key="false" mandatory="false" ns="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="userLabel" readBehavior="FROM_PERSISTENCE" sensitive="false" writeBehavior="PERSIST_AND_DELEGATE">
+    <ns1:desc>A user-friendly (and user assignable) name of this object.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute immutable="false" key="false" mandatory="false" ns="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="vendorName" readBehavior="FROM_DELEGATE" sensitive="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>vendorName</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

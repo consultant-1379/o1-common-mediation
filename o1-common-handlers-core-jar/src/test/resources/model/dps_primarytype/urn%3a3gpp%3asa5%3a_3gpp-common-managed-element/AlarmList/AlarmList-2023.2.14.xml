@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_common" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:definedBy="NE" ns1:lifeCycle="CURRENT" ns1:name="AlarmList" ns1:ns="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:version="2023.2.14" readBehavior="FROM_PERSISTENCE" writeBehavior="PERSIST_AND_DELEGATE">
+  <ns1:modelCreationInfo author="YANG Transformer2">
+    <ns1:derivedModel derivedFrom="/net_yang/urn%3a3gpp%3asa5%3a_3gpp-common-managed-element/_3gpp-common-managed-element%402023-02-14"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>The AlarmList represents the capability to store and manage alarm records. The management scope of an AlarmList is defined by all descendant objects of the base managed object, which is the object name-containing the AlarmList, and the base object itself. 
+AlarmList instances are created by the system or are pre-installed. They cannot be created nor deleted by MnS consumers. 
+When the alarm list is locked or disabled, the existing alarm records are not updated, and new alarm records are not added to the alarm list</ns1:desc>
+  <ns1:meta metaName="YANG_3GPP_REAGGREGATED_IOC"/>
+  <ns2:primaryTypeAttribute immutable="true" key="true" mandatory="true" ns="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="id" readBehavior="FROM_PERSISTENCE" sensitive="false" writeBehavior="PERSIST_AND_DELEGATE">
+    <ns1:desc>Key leaf (namingAttribute) for a class/list. Should be used as a key leaf for lists representing stage 2 classes.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute immutable="false" key="false" mandatory="false" ns="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="administrativeState" readBehavior="FROM_PERSISTENCE" sensitive="false" writeBehavior="PERSIST_AND_DELEGATE">
+    <ns1:desc>When set to UNLOCKED, the alarm list is updated. When the set to LOCKED, the existing alarm records are not updated, and new alarm records are not added to the alarm list.</ns1:desc>
+    <ns1:type modelUrn="//urn%3a3gpp%3asa5%3a_3gpp-common-managed-element/AlarmList__administrativeState/2023.2.14" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="LOCKED" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute immutable="false" key="false" mandatory="false" ns="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="alarmRecords" readBehavior="FROM_DELEGATE" sensitive="false" writeBehavior="DELEGATE">
+    <ns1:desc>List of alarmRecords</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionUniquenessConstraint/>
+      <ns1:collectionValuesType modelUrn="//urn%3a3gpp%3asa5%3a_3gpp-common-managed-element/AlarmList__alarmRecords/2023.2.14" xsi:type="ns1:complexRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute immutable="false" key="false" mandatory="false" ns="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="lastModification" readBehavior="FROM_DELEGATE" sensitive="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The last time when an alarm record was modified</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringContentsConstraint type="REGEX" value="\d{4}-(1[0-2]|0[1-9])-(0[1-9]|[1|2][0-9]|3[0-1])T(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.\d+)?(Z|[\+\-]((1[0-3]|0[0-9]):([0-5][0-9])|14:00))?"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute immutable="false" key="false" mandatory="false" ns="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="numOfAlarmRecords" readBehavior="FROM_DELEGATE" sensitive="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The number of alarm records in the AlarmList</ns1:desc>
+    <ns1:type xsi:type="ns1:longType">
+      <ns1:valueRangeConstraint>
+        <ns1:minMaxRange max="4294967295" min="0"/>
+      </ns1:valueRangeConstraint>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute immutable="false" key="false" mandatory="false" ns="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="operationalState" readBehavior="FROM_DELEGATE" sensitive="false" writeBehavior="NOT_ALLOWED">
+    <ns1:desc>The producer sets this attribute to ENABLED, indicating that it has the resource and ability to record alarm in AlarmList else, it sets the attribute to DISABLED.</ns1:desc>
+    <ns1:type modelUrn="//urn%3a3gpp%3asa5%3a_3gpp-common-managed-element/AlarmList__operationalState/2023.2.14" xsi:type="ns1:enumRefType"/>
+    <ns1:default value="DISABLED" xsi:type="ns1:stringValue"/>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

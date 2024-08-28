@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- *******************************************************************************
+    * COPYRIGHT Ericsson LMI 2024. All rights reserved. * * No part of this document
+    may be reproduced in any form without the * written permission of the copyright
+    owner.The contents of this document * are subject to revision without notice
+    due to continued progress in * methodology, design and manufacturing. Ericsson
+    shall have no liability * for any error or damage of any kind resulting from
+    the use of this document.
+    * ******************************************************************************* -->
+<flow:FlowDefinition oss_common:lifeCycle="CURRENT"
+                     oss_common:name="TestEventBasedActivationFlow"
+                     oss_common:ns="O1_MED"
+                     oss_common:version="1.0.0"
+                     synchronicity="SYNCHRONOUS"
+                     xmlns:flow="urn:com:ericsson:schema:xml:oss:fbp_flow"
+                     xmlns:oss_common="urn:com:ericsson:schema:xml:oss:oss_common"
+                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <oss_common:modelCreationInfo author="TeamAmerica" creationDate="28/06/2023">
+        <oss_common:designedModel componentId="o1-fm-flow-model"/>
+    </oss_common:modelCreationInfo>
+    <oss_common:desc>
+        Test Flow model for common event based activation request processing for O1Node network element
+    </oss_common:desc>
+    <flow:input name="TestEventBasedActivationFlow"/>
+    <flow:step name="TlsCredentialsManagerHandler">
+        <flow:handlerTypeRef uri="model://MEDIATION/TlsCredentialsManagerHandler/1.0.0"/>
+    </flow:step>
+    <flow:step name="SshCredentialsManagerHandler">
+        <flow:handlerTypeRef uri="model://MEDIATION/SshCredentialsManagerHandler/1.0.0"/>
+        <flow:attribute name="mediationTaskRequest" source="request:mediationTaskRequest"/>
+    </flow:step>
+    <flow:step name="NetconfSessionBuilderHandler">
+        <flow:handlerTypeRef uri="model://MEDIATION/NetconfSessionBuilderHandler/1.0.0"/>
+        <flow:attribute name="sessionMode" value="SHORT_LIFE"/>
+        <flow:attribute name="sessionType" value="SUBSYSTEM"/>
+        <flow:attribute name="sessionTypeValue" value="netconf-yang"/>
+        <flow:attribute name="transportSocketTimeout" value="100000"/>
+        <flow:attribute name="xaResourceProvider" value="YANG"/>
+    </flow:step>
+    <flow:step name="SetDnPrefixHandler">
+        <flow:handlerTypeRef uri="model://O1/SetDnPrefixHandler/1.0.0"/>
+        <flow:attribute name="active">
+            <flow:complexValue xsi:type="oss_common:booleanValue" value="true"/>
+        </flow:attribute>
+    </flow:step>
+    <flow:step name="NtfSubscriptionControlHandler">
+        <flow:handlerTypeRef uri="model://O1/NtfSubscriptionControlHandler/1.0.0"/>
+        <flow:attribute name="active">
+            <flow:complexValue xsi:type="oss_common:booleanValue" value="true"/>
+        </flow:attribute>
+        <flow:attribute name="VIP" value="ves_collector_ip"/>
+        <flow:attribute name="NtfSubscriptionControlId" value="ENMPM"/>
+        <flow:attribute name="NtfSubscriptionControlO1MessageEventPath" value="pm"/>
+        <flow:attribute name="NtfSubscriptionControlNotificationTypes">
+            <flow:complexValue xsi:type="oss_common:collectionValue">
+                 <oss_common:values>
+                     <oss_common:value xsi:type="oss_common:stringValue" value="notifyFileReady"/>
+                     <oss_common:value xsi:type="oss_common:stringValue" value="notifyFilePreparationError"/>
+                     </oss_common:values>
+         </flow:complexValue>
+        </flow:attribute>
+    </flow:step>
+
+    <flow:step name="HeartbeatControlHandler">
+        <flow:handlerTypeRef uri="model://O1/HeartbeatControlHandler/1.0.0"/>
+        <flow:attribute name="active">
+            <flow:complexValue xsi:type="oss_common:booleanValue" value="true"/>
+        </flow:attribute>
+        <flow:attribute name="heartbeatinterval">
+            <flow:complexValue xsi:type="oss_common:integerValue" value="450"/>
+        </flow:attribute>
+        <flow:attribute name="NtfSubscriptionControlId" value="ENMPM"/>
+    </flow:step>
+
+    <flow:step name="ReadManagedElementIdHandler">
+        <flow:handlerTypeRef uri="model://O1/ReadManagedElementIdHandler/1.0.0"/>
+    </flow:step>
+    <flow:step name="NetconfSessionReleaserHandler">
+        <flow:handlerTypeRef uri="model://MEDIATION/NetconfSessionReleaserHandler/1.0.0"/>
+    </flow:step>
+    <flow:step name="NetconfErrorControlHandler">
+        <flow:handlerTypeRef uri="model://O1/NetconfErrorControlHandler/1.0.0"/>
+    </flow:step>
+    <flow:step name="HeartbeatRegistrationHandler">
+        <flow:handlerTypeRef uri="model://O1/HeartbeatRegistrationHandler/1.0.0"/>
+        <flow:attribute name="active">
+            <flow:complexValue xsi:type="oss_common:booleanValue" value="true"/>
+        </flow:attribute>
+        <flow:attribute name="fcapsType" value="PM"/>
+        <flow:attribute name="heartbeatTimeout">
+            <flow:complexValue xsi:type="oss_common:integerValue" value="900"/>
+        </flow:attribute>
+    </flow:step>
+
+    <flow:path transaction="REQUIRED">
+        <flow:from uri="direct:TestEventBasedActivationFlow"/>
+        <flow:to uri="TlsCredentialsManagerHandler"/>
+        <flow:to uri="SshCredentialsManagerHandler"/>
+        <flow:to uri="NetconfSessionBuilderHandler"/>
+        <flow:to uri="ReadManagedElementIdHandler"/>
+        <flow:to uri="SetDnPrefixHandler"/>
+        <flow:to uri="NtfSubscriptionControlHandler"/>
+        <flow:to uri="HeartbeatControlHandler"/>
+        <flow:to uri="NetconfSessionReleaserHandler"/>
+        <flow:to uri="NetconfErrorControlHandler"/>
+        <flow:to uri="HeartbeatRegistrationHandler"/>
+    </flow:path>
+</flow:FlowDefinition>

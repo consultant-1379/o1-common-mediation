@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:PrimaryTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:dps_primarytype" xmlns:ns3="urn:com:ericsson:schema:xml:oss:dps_common" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" hierarchyType="HIERARCHICAL" ns1:definedBy="NE" ns1:lifeCycle="CURRENT" ns1:name="NtfSubscriptionControl" ns1:ns="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:version="2023.2.14" readBehavior="FROM_PERSISTENCE" writeBehavior="PERSIST_AND_DELEGATE">
+  <ns1:modelCreationInfo author="YANG Transformer2">
+    <ns1:derivedModel derivedFrom="/net_yang/urn%3a3gpp%3asa5%3a_3gpp-common-managed-element/_3gpp-common-managed-element%402023-02-14"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>A NtfSubscriptionControl instance represents the notification subscription of a particular notification recipient. The scope attribute is used to select managed object instances. The base object instance of the scope is the object instance name-containing the NtfSubscriptionControl instance. The notifications related to the selected managed object instances are candidates to be sent to the address specified by the notificationRecipientAddress attribute. The notificationType attribute and notificationFilter attribute allow MnS consumers to exercise control over which candidate notifications are sent to the notificationRecipientAddress. If the notificationType attribute is supported and present, its value identifies the types of notifications that are candidate to be sent to the notificationRecipientAddress. If the notificationType attribute is not supported or not present, all types of notifications are candidate to be sent to notificationRecipientAddress. If supported, the notificationFilter attribute defines a filter that is applied to the set of candidate notifications. Only candidate notifications that pass the filter criteria are sent to the notificationRecipientAddress. If the notificationFilter attribute is not supported all candidate notificatios are sent to the notificationRecipientAddress. To receive notifications, a MnS consumer has to create NtfSubscriptionControl object instancess on the MnS producer. A MnS consumer can create a subscription for another MnS consumer since it is not required the notificationRecipientAddress be his own address. When a MnS consumer does not wish to receive notifications any more the MnS consumer shall delete the corresponding NtfSubscriptionControl instance. Creation and deletion of NtfSubscriptionControl instances by MnS consumers is optional; when not supported, the NtfSubscriptionControl instances may be created and deleted by the system or be pre-installed.</ns1:desc>
+  <ns1:meta metaName="YANG_3GPP_REAGGREGATED_IOC"/>
+  <ns2:primaryTypeAttribute immutable="true" key="true" mandatory="true" ns="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="id" readBehavior="FROM_PERSISTENCE" sensitive="false" writeBehavior="PERSIST_AND_DELEGATE">
+    <ns1:desc>Key leaf (namingAttribute) for a class/list. Should be used as a key leaf for lists representing stage 2 classes.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute immutable="false" key="false" mandatory="false" ns="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="notificationFilter" readBehavior="FROM_PERSISTENCE" sensitive="false" writeBehavior="PERSIST_AND_DELEGATE">
+    <ns1:desc>Defines a filter to be applied to candidate notifications identified by the notificationTypes attribute. If notificationFilter is present, only notifications that pass the filter criteria are forwarded to the notification recipient; all other notifications are discarded. The filter can be applied to any field of a notification.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute immutable="false" key="false" mandatory="true" ns="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="notificationRecipientAddress" readBehavior="FROM_PERSISTENCE" sensitive="false" writeBehavior="PERSIST_AND_DELEGATE">
+    <ns1:desc>notificationRecipientAddress</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute immutable="false" key="false" mandatory="false" ns="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="notificationTypes" readBehavior="FROM_PERSISTENCE" sensitive="false" writeBehavior="PERSIST_AND_DELEGATE">
+    <ns1:desc>Defines the types of notifications that are candidates for being forwarded to the notification recipient. If the notificationFilter attribute is not supported or not present all candidate notifications types are forwarded to the notification; discriminated by notificationFilter attribute.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:collectionUniquenessConstraint/>
+      <ns1:collectionValuesType xsi:type="ns1:stringType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+  <ns2:primaryTypeAttribute immutable="false" key="false" mandatory="true" ns="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="scope" readBehavior="FROM_PERSISTENCE" sensitive="false" writeBehavior="PERSIST_AND_DELEGATE">
+    <ns1:desc>Describes which object instances are selected with respect to a base object instance.</ns1:desc>
+    <ns1:type xsi:type="ns1:listType">
+      <ns1:notNullConstraint/>
+      <ns1:collectionSizeConstraint>
+        <ns1:minMaxSize max="1" min="1"/>
+      </ns1:collectionSizeConstraint>
+      <ns1:collectionUniquenessConstraint/>
+      <ns1:collectionValuesType modelUrn="//urn%3a3gpp%3asa5%3a_3gpp-common-managed-element/NtfSubscriptionControl__scope/2023.2.14" xsi:type="ns1:complexRefType"/>
+    </ns1:type>
+  </ns2:primaryTypeAttribute>
+</ns2:PrimaryTypeDefinition>

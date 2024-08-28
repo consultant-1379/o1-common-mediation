@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CapabilityDefinition
+        oss_common:ns="global"
+        oss_common:name="OSS_TOP"
+        xmlns="urn:com:ericsson:schema:xml:oss:oss_capability"
+        xmlns:oss_common="urn:com:ericsson:schema:xml:oss:oss_common"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <oss_common:modelCreationInfo author="Quarks" creationDate="27/09/2017">
+        <oss_common:designedModel componentId="OSS TOP model"/>
+    </oss_common:modelCreationInfo>
+
+    <oss_common:desc>Capabilities that relate to the TOP model and the mirror</oss_common:desc>
+
+    <complexCapability oss_common:name="supportedModelFeatures" endUserOverridable="false" overridable="FOR_TARGET_INSTANCE">
+        <oss_common:desc>Denotes the features supported by a node instance.
+            The values will typically be set as part of some feature-discovery mechanism, which
+            could be part of, for example, Software Sync or be part of connection establishment.
+            Features are identified inside the node CM resource model by an identifier and are
+            considered binary (either the node supports the feature, or it does not). The existence of
+            the feature identifier inside the collection denotes that the node supports the feature.</oss_common:desc>
+        <oss_common:type xsi:type="oss_common:collectionType">
+            <oss_common:notNullConstraint/>
+            <oss_common:collectionUniquenessConstraint/>
+            <oss_common:collectionValuesType xsi:type="oss_common:stringType">
+                <oss_common:notNullConstraint/>
+            </oss_common:collectionValuesType>
+        </oss_common:type>
+    </complexCapability>
+
+</CapabilityDefinition>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:ManagementInformationModelInformation xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:cfm_miminfo" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:name="NE-defined" ns1:ns="O1Node" ns1:version="803483731780.1078181060001.833559454907">
+  <ns1:modelCreationInfo author="YANG Transformer2">
+    <ns1:designedModel componentId="YANG Transformer2"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>MIM Information for Software Sync</ns1:desc>
+  <ns1:meta metaName="YANG_CONTAINMENT_PARENT_URN" metaValue="//OSS_TOP/MeContext/*"/>
+  <ns1:meta metaName="YangTransformer2" metaValue="1.1.4"/>
+  <ns2:supportedMims>
+    <ns2:mimMappedTo namespace="urn:3gpp:sa5:_3gpp-5gc-nrm-configurable5qiset" originalModelUrn="/net_yang/urn%3a3gpp%3asa5%3a_3gpp-5gc-nrm-configurable5qiset/_3gpp-5gc-nrm-configurable5qiset%402022-11-02" version="2022.11.2"/>
+    <ns2:mimMappedTo namespace="urn:3gpp:sa5:_3gpp-common-files" originalModelUrn="/net_yang/urn%3a3gpp%3asa5%3a_3gpp-common-files/_3gpp-common-files%402022-09-28" version="2022.9.28"/>
+    <ns2:mimMappedTo namespace="urn:3gpp:sa5:_3gpp-common-fm" originalModelUrn="/net_yang/urn%3a3gpp%3asa5%3a_3gpp-common-fm/_3gpp-common-fm%402022-10-24" version="2022.10.24"/>
+    <ns2:mimMappedTo namespace="urn:3gpp:sa5:_3gpp-common-managed-element" originalModelUrn="/net_yang/urn%3a3gpp%3asa5%3a_3gpp-common-managed-element/_3gpp-common-managed-element%402023-02-14" version="2023.2.14"/>
+    <ns2:mimMappedTo namespace="urn:3gpp:sa5:_3gpp-common-managed-function" originalModelUrn="/net_yang/urn%3a3gpp%3asa5%3a_3gpp-common-managed-function/_3gpp-common-managed-function%402023-02-14" version="2023.2.14"/>
+    <ns2:mimMappedTo namespace="urn:3gpp:sa5:_3gpp-common-measurements" originalModelUrn="/net_yang/urn%3a3gpp%3asa5%3a_3gpp-common-measurements/_3gpp-common-measurements%402023-02-18" version="2023.2.18"/>
+    <ns2:mimMappedTo namespace="urn:3gpp:sa5:_3gpp-common-subscription-control" originalModelUrn="/net_yang/urn%3a3gpp%3asa5%3a_3gpp-common-subscription-control/_3gpp-common-subscription-control%402022-10-20" version="2022.10.20"/>
+    <ns2:mimMappedTo namespace="urn:3gpp:sa5:_3gpp-common-top" originalModelUrn="/net_yang/urn%3a3gpp%3asa5%3a_3gpp-common-top/_3gpp-common-top%402019-06-17" version="2019.6.17"/>
+    <ns2:mimMappedTo namespace="urn:3gpp:sa5:_3gpp-common-trace" originalModelUrn="/net_yang/urn%3a3gpp%3asa5%3a_3gpp-common-trace/_3gpp-common-trace%402023-02-18" version="2023.2.18"/>
+    <ns2:mimMappedTo namespace="urn:3gpp:sa5:_3gpp-common-yang-extensions" originalModelUrn="/net_yang/urn%3a3gpp%3asa5%3a_3gpp-common-yang-extensions/_3gpp-common-yang-extensions%402022-10-20" version="2022.10.20"/>
+    <ns2:mimMappedTo namespace="urn:3gpp:sa5:_3gpp-common-yang-types" originalModelUrn="/net_yang/urn%3a3gpp%3asa5%3a_3gpp-common-yang-types/_3gpp-common-yang-types%402023-02-14" version="2023.2.14"/>
+    <ns2:mimMappedTo namespace="urn:ietf:params:xml:ns:yang:iana-asymmetric-algs" originalModelUrn="/net_yang/urn%3aietf%3aparams%3axml%3ans%3ayang%3aiana-asymmetric-algs/iana-asymmetric-algs%402019-11-20" version="2019.11.20"/>
+    <ns2:mimMappedTo namespace="urn:ietf:params:xml:ns:yang:iana-crypt-hash" originalModelUrn="/net_yang/urn%3aietf%3aparams%3axml%3ans%3ayang%3aiana-crypt-hash/iana-crypt-hash%402014-08-06" version="2014.8.6"/>
+    <ns2:mimMappedTo namespace="urn:ietf:params:xml:ns:yang:iana-symmetric-algs" originalModelUrn="/net_yang/urn%3aietf%3aparams%3axml%3ans%3ayang%3aiana-symmetric-algs/iana-symmetric-algs%402019-11-20" version="2019.11.20"/>
+    <ns2:mimMappedTo namespace="urn:ietf:params:xml:ns:yang:ietf-crypto-types" originalModelUrn="/net_yang/urn%3aietf%3aparams%3axml%3ans%3ayang%3aietf-crypto-types/ietf-crypto-types%402019-11-20" version="2019.11.20"/>
+    <ns2:mimMappedTo namespace="urn:ietf:params:xml:ns:yang:ietf-datastores" originalModelUrn="/net_yang/urn%3aietf%3aparams%3axml%3ans%3ayang%3aietf-datastores/ietf-datastores%402018-02-14" version="2018.2.14"/>
+    <ns2:mimMappedTo namespace="urn:ietf:params:xml:ns:yang:ietf-inet-types" originalModelUrn="/net_yang/urn%3aietf%3aparams%3axml%3ans%3ayang%3aietf-inet-types/ietf-inet-types%402019-11-04" version="2019.11.4"/>
+    <ns2:mimMappedTo namespace="urn:ietf:params:xml:ns:yang:ietf-keystore" originalModelUrn="/net_yang/urn%3aietf%3aparams%3axml%3ans%3ayang%3aietf-keystore/ietf-keystore%402019-11-20" version="2019.11.20"/>
+    <ns2:mimMappedTo namespace="urn:ietf:params:xml:ns:yang:ietf-netconf-acm" originalModelUrn="/net_yang/urn%3aietf%3aparams%3axml%3ans%3ayang%3aietf-netconf-acm/ietf-netconf-acm%402018-02-14" version="2018.2.14"/>
+    <ns2:mimMappedTo namespace="urn:ietf:params:xml:ns:yang:ietf-system" originalModelUrn="/net_yang/urn%3aietf%3aparams%3axml%3ans%3ayang%3aietf-system/ietf-system%402014-08-06" version="2014.8.6"/>
+    <ns2:mimMappedTo namespace="urn:ietf:params:xml:ns:yang:ietf-tls-client" originalModelUrn="/net_yang/urn%3aietf%3aparams%3axml%3ans%3ayang%3aietf-tls-client/ietf-tls-client%402019-11-20" version="2019.11.20"/>
+    <ns2:mimMappedTo namespace="urn:ietf:params:xml:ns:yang:ietf-tls-common" originalModelUrn="/net_yang/urn%3aietf%3aparams%3axml%3ans%3ayang%3aietf-tls-common/ietf-tls-common%402019-11-20" version="2019.11.20"/>
+    <ns2:mimMappedTo namespace="urn:ietf:params:xml:ns:yang:ietf-truststore" originalModelUrn="/net_yang/urn%3aietf%3aparams%3axml%3ans%3ayang%3aietf-truststore/ietf-truststore%402019-11-20" version="2019.11.20"/>
+    <ns2:mimMappedTo namespace="urn:ietf:params:xml:ns:yang:ietf-yang-library" originalModelUrn="/net_yang/urn%3aietf%3aparams%3axml%3ans%3ayang%3aietf-yang-library/ietf-yang-library%402019-01-04" version="2019.1.4"/>
+    <ns2:mimMappedTo namespace="urn:ietf:params:xml:ns:yang:ietf-yang-types" originalModelUrn="/net_yang/urn%3aietf%3aparams%3axml%3ans%3ayang%3aietf-yang-types/ietf-yang-types%402021-02-22" version="2021.2.22"/>
+    <ns2:mimMappedTo namespace="urn:rdns:com:ericsson:oammodel:ericsson-alarm-pc-types" originalModelUrn="/net_yang/urn%3ardns%3acom%3aericsson%3aoammodel%3aericsson-alarm-pc-types/ericsson-alarm-pc-types%402018-11-21" version="2.1.0"/>
+    <ns2:mimMappedTo namespace="urn:rdns:com:ericsson:oammodel:ericsson-brm" originalModelUrn="/net_yang/urn%3ardns%3acom%3aericsson%3aoammodel%3aericsson-brm/ericsson-brm%402021-06-08" version="4.2.1"/>
+    <ns2:mimMappedTo namespace="urn:rdns:com:ericsson:oammodel:ericsson-fm" originalModelUrn="/net_yang/urn%3ardns%3acom%3aericsson%3aoammodel%3aericsson-fm/ericsson-fm%402020-09-17" version="3.1.1"/>
+    <ns2:mimMappedTo namespace="urn:rdns:com:ericsson:oammodel:ericsson-keystore-ext" originalModelUrn="/net_yang/urn%3ardns%3acom%3aericsson%3aoammodel%3aericsson-keystore-ext/ericsson-keystore-ext%402021-03-31" version="2.0.0"/>
+    <ns2:mimMappedTo namespace="urn:rdns:com:ericsson:oammodel:ericsson-notifications" originalModelUrn="/net_yang/urn%3ardns%3acom%3aericsson%3aoammodel%3aericsson-notifications/ericsson-notifications%402021-07-22" version="5.0.1"/>
+    <ns2:mimMappedTo namespace="urn:rdns:com:ericsson:oammodel:ericsson-pm" originalModelUrn="/net_yang/urn%3ardns%3acom%3aericsson%3aoammodel%3aericsson-pm/ericsson-pm%402021-03-15" version="4.1.6"/>
+    <ns2:mimMappedTo namespace="urn:rdns:com:ericsson:oammodel:ericsson-swim" originalModelUrn="/net_yang/urn%3ardns%3acom%3aericsson%3aoammodel%3aericsson-swim/ericsson-swim%402018-09-04" version="1.1.0"/>
+    <ns2:mimMappedTo namespace="urn:rdns:com:ericsson:oammodel:ericsson-swm" originalModelUrn="/net_yang/urn%3ardns%3acom%3aericsson%3aoammodel%3aericsson-swm/ericsson-swm%402020-10-14" version="3.1.0"/>
+    <ns2:mimMappedTo namespace="urn:rdns:com:ericsson:oammodel:ericsson-system-ext" originalModelUrn="/net_yang/urn%3ardns%3acom%3aericsson%3aoammodel%3aericsson-system-ext/ericsson-system-ext%402021-05-24" version="5.1.1"/>
+    <ns2:mimMappedTo namespace="urn:rdns:com:ericsson:oammodel:ericsson-system-ext-aum" originalModelUrn="/net_yang/urn%3ardns%3acom%3aericsson%3aoammodel%3aericsson-system-ext-aum/ericsson-system-ext-aum%402021-07-08" version="1.6.0"/>
+    <ns2:mimMappedTo namespace="urn:rdns:com:ericsson:oammodel:ericsson-truststore-ext" originalModelUrn="/net_yang/urn%3ardns%3acom%3aericsson%3aoammodel%3aericsson-truststore-ext/ericsson-truststore-ext%402021-03-31" version="1.2.0"/>
+    <ns2:mimMappedTo namespace="urn:rdns:com:ericsson:oammodel:ericsson-yang-extensions" originalModelUrn="/net_yang/urn%3ardns%3acom%3aericsson%3aoammodel%3aericsson-yang-extensions/ericsson-yang-extensions%402021-06-08" version="3.7.1"/>
+    <ns2:mimMappedTo namespace="urn:rdns:com:ericsson:oammodel:ericsson-yang-library-ext" originalModelUrn="/net_yang/urn%3ardns%3acom%3aericsson%3aoammodel%3aericsson-yang-library-ext/ericsson-yang-library-ext%402021-03-29" version="2.2.0"/>
+    <ns2:mimMappedTo namespace="urn:rdns:com:ericsson:oammodel:ericsson-yang-types" originalModelUrn="/net_yang/urn%3ardns%3acom%3aericsson%3aoammodel%3aericsson-yang-types/ericsson-yang-types%402021-05-10" version="1.7.0"/>
+  </ns2:supportedMims>
+</ns2:ManagementInformationModelInformation>

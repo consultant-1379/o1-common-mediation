@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>o1-common-mediation</artifactId>
+        <groupId>com.ericsson.oss.mediation.o1</groupId>
+        <version>1.2.2-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>ERICo1commonmediation_CXP9043884</artifactId>
+    <name>[${project.artifactId}] RPM module</name>
+    <packaging>${rpm.packaging}</packaging>
+
+    <properties>
+        <publish_artifact>true</publish_artifact>
+        <media.category>service</media.category>
+        <com.ericsson.oss.rpm.architecture>noarch</com.ericsson.oss.rpm.architecture>
+        <comp-name>ericsson</comp-name>
+        <rpm.name>${project.artifactId}</rpm.name>
+        <rpm.version>${project.version}</rpm.version>
+        <sonar.skip>true</sonar.skip>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.ericsson.oss.mediation.o1</groupId>
+            <artifactId>o1-collector-war</artifactId>
+            <version>${project.version}</version>
+            <type>war</type>
+        </dependency>
+        <dependency>
+            <groupId>com.ericsson.oss.mediation.o1</groupId>
+            <artifactId>o1-common-heartbeat-ear</artifactId>
+            <version>${project.version}</version>
+            <type>ear</type>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>o1-common-handlers-ear</artifactId>
+            <version>${project.version}</version>
+            <type>ear</type>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>rpm-maven-plugin</artifactId>
+                <configuration>
+                    <mappings>
+                        <mapping>
+                            <directory>${vm.install-path}</directory>
+                            <filemode>550</filemode>
+                            <username>${jboss-username}</username>
+                            <groupname>${jboss-groupname}</groupname>
+                            <directoryIncluded>false</directoryIncluded>
+                            <recurseDirectories>false</recurseDirectories>
+                            <dependency>
+                                <includes>
+                                    <include>${project.groupId}:o1-collector-war</include>
+                                    <include>${project.groupId}:o1-common-heartbeat-ear</include>
+                                    <include>${project.groupId}:o1-common-handlers-ear</include>
+                                </includes>
+                            </dependency>
+                        </mapping>
+                    </mappings>
+                    <group />
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

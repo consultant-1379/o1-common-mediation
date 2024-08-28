@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- *******************************************************************************
+     * COPYRIGHT Ericsson 2023. All rights reserved.
+     *
+     * No part of this document may be reproduced in any form without the
+     * written permission of the copyright owner.The contents of this document
+     * are subject to revision without notice due to continued progress in
+     * methodology, design and manufacturing. Ericsson shall have no liability
+     * for any error or damage of any kind resulting from the use of this document.
+     ******************************************************************************* -->
+
+<TargetTypeInformation oc:ns="NODE" oc:name="O1Node"
+                       xmlns:oc="urn:com:ericsson:schema:xml:oss:oss_common" xmlns="urn:com:ericsson:schema:xml:oss:oss_targettype"
+                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <oc:modelCreationInfo author="TeamAmerica" creationDate="26/04/2023">
+        <oc:designedModel componentId="o1node-node-model-common-target-type-jar" />
+    </oc:modelCreationInfo>
+
+    <oc:desc>This is the target type information model for Network Element type O1Node.</oc:desc>
+
+    <hasMultipleManagedElements>true</hasMultipleManagedElements>
+    <hasTargetVersionSpecificExtensions>true</hasTargetVersionSpecificExtensions>
+
+    <platform>O1</platform>
+    <rootMoType namespace="OSS_TOP" name="MeContext" />
+
+    <!--
+        RAN
+    -->
+
+    <!-- DU, CU-CP, CU-UP -->
+    <functionMoType namespace="urn:3gpp:sa5:_3gpp-nr-nrm-gnbdufunction" name="GNBDUFunction" managedFunctionName="GNBDU"/>
+    <functionMoType namespace="urn:3gpp:sa5:_3gpp-nr-nrm-gnbcucpfunction" name="GNBCUCPFunction" managedFunctionName="GNBCUCP"/>
+    <functionMoType namespace="urn:3gpp:sa5:_3gpp-nr-nrm-gnbcuupfunction" name="GNBCUUPFunction" managedFunctionName="GNBCUUP"/>
+    <!-- RDM -->
+    <functionMoType namespace="urn:rdns:com:ericsson:oammodel:ericsson-sectorequipmentfunction" name="SectorEquipmentFunction" managedFunctionName="RU"/>
+    <functionMoType namespace="urn:rdns:com:ericsson:oammodel:ericsson-antennafunction" name="AntennaFunction" managedFunctionName="Antenna"/>
+    <functionMoType namespace="urn:rdns:com:ericsson:oammodel:ericsson-equipment" name="Equipment" path="/RANInfrastructureSupport/Equipment" managedFunctionName="Equipment"/>
+
+
+
+    <ciMoType namespace="O1_MED" name="O1ConnectivityInformation" />
+
+</TargetTypeInformation>

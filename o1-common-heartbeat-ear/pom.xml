@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>o1-common-mediation</artifactId>
+        <groupId>com.ericsson.oss.mediation.o1</groupId>
+        <version>1.2.2-SNAPSHOT</version>
+    </parent>
+    <artifactId>o1-common-heartbeat-ear</artifactId>
+    <packaging>ear</packaging>
+
+    <name>[${project.artifactId}] EAR module</name>
+
+    <properties>
+        <project.ear.dependencies>com.ericsson.oss.itpf.sdk.service-framework:4.x services, org.apache.commons.lang3 export
+        </project.ear.dependencies>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>o1-common-heartbeat-ejb</artifactId>
+            <version>${project.version}</version>
+            <type>ejb</type>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <outputDirectory>${project.parent.artifactId}-${project.version}</outputDirectory>
+        <plugins>
+            <plugin>
+                <groupId>org.jboss.as.plugins</groupId>
+                <artifactId>jboss-as-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <version>${version.maven-ear-plugin}</version>
+                <configuration>
+                    <generateApplicationXml>true</generateApplicationXml>
+                    <defaultLibBundleDir>lib</defaultLibBundleDir>
+                    <filtering>true</filtering>
+                    <finalName>${project.artifactId}-${project.parent.version}</finalName>
+                    <archive>
+                        <manifestEntries>
+                            <Dependencies>${project.ear.dependencies}</Dependencies>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

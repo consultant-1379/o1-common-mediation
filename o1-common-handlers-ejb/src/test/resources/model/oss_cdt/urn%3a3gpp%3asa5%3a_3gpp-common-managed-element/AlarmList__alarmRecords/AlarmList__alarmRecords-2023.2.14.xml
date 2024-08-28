@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:ComplexDataTypeDefinition xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_cdt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:lifeCycle="CURRENT" ns1:name="AlarmList__alarmRecords" ns1:ns="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:version="2023.2.14">
+  <ns1:modelCreationInfo author="YANG Transformer2">
+    <ns1:derivedModel derivedFrom="/net_yang/urn%3a3gpp%3asa5%3a_3gpp-common-managed-element/_3gpp-common-managed-element%402023-02-14"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>List of alarmRecords</ns1:desc>
+  <ns2:attribute immutable="false" key="false" mandatory="false" namespace="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="ackState" sensitive="false">
+    <ns1:desc>ackState</ns1:desc>
+    <ns1:type modelUrn="//urn%3a3gpp%3asa5%3a_3gpp-common-managed-element/AlarmList__alarmRecords__ackState/2023.2.14" xsi:type="ns1:enumRefType"/>
+  </ns2:attribute>
+  <ns2:attribute immutable="false" key="false" mandatory="false" namespace="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="ackSystemId" sensitive="false">
+    <ns1:desc>It identifies the system (Management System) that last changed the ackState of an alarm, i.e. acknowledged or unacknowledged the alarm.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:attribute>
+  <ns2:attribute immutable="false" key="false" mandatory="false" namespace="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="ackTime" sensitive="false">
+    <ns1:desc>It identifies the time when the alarm has been acknowledged or unacknowledged the last time, i.e. it registers the time when ackState changes.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringContentsConstraint type="REGEX" value="\d{4}-(1[0-2]|0[1-9])-(0[1-9]|[1|2][0-9]|3[0-1])T(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.\d+)?(Z|[\+\-]((1[0-3]|0[0-9]):([0-5][0-9])|14:00))?"/>
+    </ns1:type>
+  </ns2:attribute>
+  <ns2:attribute immutable="false" key="false" mandatory="false" namespace="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="ackUserId" sensitive="false">
+    <ns1:desc>It identifies the last user who has changed the Acknowledgement State.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:attribute>
+  <ns2:attribute immutable="false" key="false" mandatory="false" namespace="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="additionalText" sensitive="false">
+    <ns1:desc>additionalText</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:attribute>
+  <ns2:attribute immutable="false" key="false" mandatory="false" namespace="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="alarmChangedTime" sensitive="false">
+    <ns1:desc>not applicable if related alarm has not changed</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringContentsConstraint type="REGEX" value="\d{4}-(1[0-2]|0[1-9])-(0[1-9]|[1|2][0-9]|3[0-1])T(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.\d+)?(Z|[\+\-]((1[0-3]|0[0-9]):([0-5][0-9])|14:00))?"/>
+    </ns1:type>
+  </ns2:attribute>
+  <ns2:attribute immutable="false" key="false" mandatory="false" namespace="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="alarmClearedTime" sensitive="false">
+    <ns1:desc>not applicable if related alarm was not cleared</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringContentsConstraint type="REGEX" value="\d{4}-(1[0-2]|0[1-9])-(0[1-9]|[1|2][0-9]|3[0-1])T(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.\d+)?(Z|[\+\-]((1[0-3]|0[0-9]):([0-5][0-9])|14:00))?"/>
+    </ns1:type>
+  </ns2:attribute>
+  <ns2:attribute immutable="true" key="true" mandatory="true" namespace="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="alarmId" sensitive="false">
+    <ns1:desc>Identifies the alarmRecord</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:attribute>
+  <ns2:attribute immutable="false" key="false" mandatory="false" namespace="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="alarmRaisedTime" sensitive="false">
+    <ns1:desc>alarmRaisedTime</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:stringContentsConstraint type="REGEX" value="\d{4}-(1[0-2]|0[1-9])-(0[1-9]|[1|2][0-9]|3[0-1])T(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.\d+)?(Z|[\+\-]((1[0-3]|0[0-9]):([0-5][0-9])|14:00))?"/>
+    </ns1:type>
+  </ns2:attribute>
+  <ns2:attribute immutable="false" key="false" mandatory="false" namespace="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="alarmType" sensitive="false">
+    <ns1:desc>General category for the alarm.</ns1:desc>
+    <ns1:type modelUrn="//urn%3a3gpp%3asa5%3a_3gpp-common-managed-element/AlarmList__alarmRecords__alarmType/2023.2.14" xsi:type="ns1:enumRefType"/>
+  </ns2:attribute>
+  <ns2:attribute immutable="false" key="false" mandatory="false" namespace="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="backedUpStatus" sensitive="false">
+    <ns1:desc>Indicates if an object (the MonitoredEntity) has a back up. See definition in ITU-T Recommendation X.733 clause 8.1.2.4.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:attribute>
+  <ns2:attribute immutable="false" key="false" mandatory="false" namespace="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="backUpObject" sensitive="false">
+    <ns1:desc>backUpObject</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:attribute>
+  <ns2:attribute immutable="false" key="false" mandatory="false" namespace="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="clearSystemId" sensitive="false">
+    <ns1:desc>clearSystemId</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:attribute>
+  <ns2:attribute immutable="false" key="false" mandatory="false" namespace="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="clearUserId" sensitive="false">
+    <ns1:desc>Carries the identity of the user who invokes the clearAlarms operation.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:attribute>
+  <ns2:attribute immutable="false" key="false" mandatory="false" namespace="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="monitoredAttributes" sensitive="false">
+    <ns1:desc>Indicates MO attributes whose value changes are being monitored.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:attribute>
+  <ns2:attribute immutable="false" key="false" mandatory="true" namespace="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="notificationId" sensitive="false">
+    <ns1:desc>notificationId</ns1:desc>
+    <ns1:type xsi:type="ns1:integerType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:attribute>
+  <ns2:attribute immutable="false" key="false" mandatory="true" namespace="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="objectInstance" sensitive="false">
+    <ns1:desc>objectInstance</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType">
+      <ns1:notNullConstraint/>
+    </ns1:type>
+  </ns2:attribute>
+  <ns2:attribute immutable="false" key="false" mandatory="false" namespace="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="perceivedSeverity" sensitive="false">
+    <ns1:desc>This is Writable only if producer supports consumer to set perceivedSeverity to CLEARED</ns1:desc>
+    <ns1:type modelUrn="//urn%3a3gpp%3asa5%3a_3gpp-common-managed-element/AlarmList__alarmRecords__perceivedSeverity/2023.2.14" xsi:type="ns1:enumRefType"/>
+  </ns2:attribute>
+  <ns2:attribute immutable="false" key="false" mandatory="false" namespace="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="probableCause" sensitive="false">
+    <ns1:desc>probableCause</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:attribute>
+  <ns2:attribute immutable="false" key="false" mandatory="false" namespace="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="proposedRepairActions" sensitive="false">
+    <ns1:desc>Indicates proposed repair actions. See definition in ITU-T Recommendation X.733 clause 8.1.2.12.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:attribute>
+  <ns2:attribute immutable="false" key="false" mandatory="false" namespace="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="rootCauseIndicator" sensitive="false">
+    <ns1:desc>It indicates that this AlarmInformation is the root cause of the events captured by the notifications whose identifiers are in the related CorrelatedNotification instances.</ns1:desc>
+    <ns1:type modelUrn="//urn%3a3gpp%3asa5%3a_3gpp-common-managed-element/AlarmList__alarmRecords__rootCauseIndicator/2023.2.14" xsi:type="ns1:enumRefType"/>
+  </ns2:attribute>
+  <ns2:attribute immutable="false" key="false" mandatory="false" namespace="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="securityAlarmDetector" sensitive="false">
+    <ns1:desc>securityAlarmDetector</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:attribute>
+  <ns2:attribute immutable="false" key="false" mandatory="false" namespace="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="serviceProvider" sensitive="false">
+    <ns1:desc>It identifies the service-provider whose service is requested by the serviceUser and the service request provokes the generation of the security alarm.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:attribute>
+  <ns2:attribute immutable="false" key="false" mandatory="false" namespace="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="serviceUser" sensitive="false">
+    <ns1:desc>It identifies the service-user whose request for service provided by the serviceProvider led to the generation of the security alarm.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:attribute>
+  <ns2:attribute immutable="false" key="false" mandatory="false" namespace="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="specificProblem" sensitive="false">
+    <ns1:desc>specificProblem</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:attribute>
+  <ns2:attribute immutable="false" key="false" mandatory="false" namespace="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="stateChangeDefinition" sensitive="false">
+    <ns1:desc>Indicates MO attribute value changes. See definition in ITU-T Recommendation X.733 clause 8.1.2.11.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:attribute>
+  <ns2:attribute immutable="false" key="false" mandatory="false" namespace="urn:3gpp:sa5:_3gpp-common-managed-element" ns1:lifeCycle="CURRENT" ns1:name="trendIndication" sensitive="false">
+    <ns1:desc>Indicates if some observed condition is getting better, worse, or not changing.</ns1:desc>
+    <ns1:type xsi:type="ns1:stringType"/>
+  </ns2:attribute>
+</ns2:ComplexDataTypeDefinition>

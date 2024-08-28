@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+*******************************************************************************
+* COPYRIGHT Ericsson LMI. All rights reserved.
+*
+* No part of this document may be reproduced in any form without the
+* written permission of the copyright owner.The contents of this document
+* are subject to revision without notice due to continued progress in
+* methodology, design and manufacturing. Ericsson shall have no liability
+* for any error or damage of any kind resulting from the use of this document.
+*
+*******************************************************************************
+
+
+--><ns2:TargetVersionInformation xmlns:ns1="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:ns2="urn:com:ericsson:schema:xml:oss:oss_targetversion" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ns1:name="OSS-defined-1.0" ns1:ns="NODE:O1Node" targetModelIdentity="1.0">
+  <ns1:modelCreationInfo>
+    <ns1:designedModel componentId="O1Node 1.0 model"/>
+  </ns1:modelCreationInfo>
+  <ns1:desc>Target Version information model for O1Node 1.0</ns1:desc>
+  <ns1:meta metaName="YangTransformer2" metaValue="1.1.4"/>
+  <ns2:supportedModels>
+    <ns2:urn>/cfm_miminfo/O1Node/NE-defined/803483731780.1078181060001.833559454907</ns2:urn>
+    <ns2:urn>/oss_capabilitysupport/NODE%3aO1Node/NSCS/1.0.0</ns2:urn>
+  </ns2:supportedModels>
+  <ns2:release>1.0</ns2:release>
+</ns2:TargetVersionInformation>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss-deployment-structure xmlns="urn:jboss:deployment-structure:1.1">
+    <deployment>
+        <dependencies>
+            <module name="org.apache.commons.lang3" />
+            <module name="com.fasterxml.jackson.core.jackson-databind" />
+            <module name="org.yaml.snakeyaml" />
+        </dependencies>
+    </deployment>
+</jboss-deployment-structure>
